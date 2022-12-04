@@ -1,0 +1,35 @@
+## 문제
+
+![Screen Shot 2022-06-22 at 10.44.53 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ade64492-6b20-4a80-a7c3-b1214c6584a3/Screen_Shot_2022-06-22_at_10.44.53_PM.png)
+
+## 접근법(?)
+
+포기 [블로그봄](https://bitwise.tistory.com/504)
+
+## 코드
+
+```python
+dp= [0]*10001 # k원 가능한거
+
+n,k = map(int, input().split())
+
+money_list = list()
+
+for _ in range(n):
+    mm = int(input())
+    money_list.append(mm)
+
+dp[0] = 1 # 0원을 만드는건 한가지 방법밖에없음
+
+for i in range(n):
+    for j in range(money_list[i],k+1):
+        dp[j] += dp[j-money_list[i]]
+
+print(dp[k])
+```
+
+## 배운점
+
+dp는 아예 점화식을 생각해보면 좋을것같다
+
+ㅠㅠㅠㅠ
